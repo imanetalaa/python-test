@@ -1,4 +1,5 @@
 # conftest.py
+import pytest  # Ajoutez cette ligne
 
 def pytest_addoption(parser):
     parser.addoption("--file1", action="store", default="default1.txt", help="Specify the first file")
