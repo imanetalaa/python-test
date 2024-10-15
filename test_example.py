@@ -1,4 +1,4 @@
-# test_compare_files.py
+# tests/test_example.py
 import pytest
 import os
 
@@ -7,11 +7,16 @@ def read_file(file_path):
     with open(file_path, 'r') as f:
         return f.readlines()
 
-def test_file_comparison():
-    """Compare le contenu de file1 et file2."""
-    # Obtenez les fichiers à partir des variables d'environnement
+@pytest.fixture(scope='module')
+def files():
+    """Renvoie les chemins des fichiers à tester."""
     file1 = os.environ.get('FILE1')
     file2 = os.environ.get('FILE2')
+    return file1, file2
+
+def test_file_comparison(files):
+    """Compare le contenu de file1 et file2."""
+    file1, file2 = files
 
     # Vérifiez que les fichiers existent avant de les lire
     assert os.path.exists(file1), f"Le fichier {file1} n'existe pas."
