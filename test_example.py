@@ -13,6 +13,10 @@ def test_file_comparison():
     file1 = os.environ.get('FILE1')
     file2 = os.environ.get('FILE2')
 
+    # Vérifiez que les fichiers existent avant de les lire
+    assert os.path.exists(file1), f"Le fichier {file1} n'existe pas."
+    assert os.path.exists(file2), f"Le fichier {file2} n'existe pas."
+
     # Lire le contenu des fichiers
     content_file1 = read_file(file1)
     content_file2 = read_file(file2)
