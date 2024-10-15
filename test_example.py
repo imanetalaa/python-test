@@ -10,8 +10,8 @@ def read_file(file_path):
 @pytest.fixture(scope='module')
 def files():
     """Renvoie les chemins des fichiers à tester."""
-    file1 = os.environ.get('FILE1')
-    file2 = os.environ.get('FILE2')
+    file1 = os.environ.get('RO')
+    file2 = os.environ.get('RP')
     return file1, file2
 
 def test_file_comparison(files):
